@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "singularName": "match",
+    "pluralName": "matches",
+    "displayName": "match"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "scheduledAt": {
+      "type": "datetime"
+    },
+    "matchStatus": {
+      "type": "enumeration",
+      "enum": [
+        "programmata",
+        "inCorso",
+        "intervallo",
+        "terminata",
+        "rinviata",
+        "sospesa"
+      ]
+    },
+    "team_b": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "matches_as_team_b"
+    },
+    "scoreA": {
+      "type": "integer"
+    },
+    "scoreB": {
+      "type": "integer"
+    },
+    "oddsTeamA": {
+      "type": "decimal"
+    },
+    "oddsTeamB": {
+      "type": "decimal"
+    },
+    "oddsDraw": {
+      "type": "decimal"
+    },
+    "goal": {
+      "type": "decimal"
+    },
+    "noGoal": {
+      "type": "decimal"
+    },
+    "bettingClosedAT": {
+      "type": "datetime"
+    },
+    "team_a": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "matches_as_team_a"
+    },
+    "tournament": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tournament.tournament"
+    },
+    "winner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "matches"
+    },
+    "bets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bet.bet",
+      "mappedBy": "match"
+    }
+  }
+}

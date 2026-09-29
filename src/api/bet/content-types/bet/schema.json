@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bets",
+  "info": {
+    "singularName": "bet",
+    "pluralName": "bets",
+    "displayName": "bet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "integer"
+    },
+    "prediction": {
+      "type": "enumeration",
+      "enum": [
+        "goal",
+        "noGoa",
+        "Draw",
+        "teamA",
+        "teamB",
+        "under1.5",
+        "over1.5"
+      ]
+    },
+    "oddAtPlacement": {
+      "type": "decimal"
+    },
+    "potentialWin": {
+      "type": "decimal"
+    },
+    "betStatus": {
+      "type": "enumeration",
+      "enum": [
+        "InProgramma",
+        "Conclusa",
+        "Sospesa",
+        "Rimborsata",
+        "InCorso"
+      ]
+    },
+    "placedAt": {
+      "type": "datetime"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "bets"
+    },
+    "match": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::match.match",
+      "inversedBy": "bets"
+    }
+  }
+}

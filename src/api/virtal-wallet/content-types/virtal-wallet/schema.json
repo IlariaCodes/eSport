@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "virtal_wallets",
+  "info": {
+    "singularName": "virtal-wallet",
+    "pluralName": "virtal-wallets",
+    "displayName": "virtalWallet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "balance": {
+      "type": "integer"
+    },
+    "totalWon": {
+      "type": "integer"
+    },
+    "totalBet": {
+      "type": "integer"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "virtal_wallet"
+    }
+  }
+}
